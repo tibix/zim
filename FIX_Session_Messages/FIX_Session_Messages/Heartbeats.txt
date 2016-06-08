@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-26T18:10:24+03:00
+
+====== Heartbeats ======
+Created Thursday 26 May 2016
+
+===== Heartbeats - Tag 35=0 (Message Type = HeartBeat) =====
+
+==== Utilization ====
+
+Heart Beat Messages are sent periodically when there is no activity. This is to make sure that the other party is still alive. 
+When each side of a FIX connection has not sent any data for [HeartBtInt] seconds, they will transmit a Heartbeat message. If there is still no Heartbeat message received after (HeartBtInt + “some reasonable transmission time”) seconds then the connection should be considered lost and corrective action be initiated.
+The heartbeat will check if the message sequence number is correct, and so will make sure that no messages have been lost.
+
+Ex:  8=FIX.4.2|9=56|**35=0**|49=SCI|56=TCI|34=13|52=20050816-05:04:41|57=ADMIN|10=103|
+
+==== Important Tags and comments ====
+
+== Header ==
+	8=FIX.4.2			- Begin String
+	9=56				- The Length of the message
+	**35=0				- Message Type = HeartBeat (0)**
+	49=SCI				- Sender Company ID ([[TAG49 - SenderCompID]])
+	56=TCI				- Target Company ID ([[TAG56 - TargetCompID]])
+	34=13
+	52=20050816-05:04:41
+	57=ADMIN
+
+
+== Body ==
+	//Body can be empty in case of Heart Beat Message//
+	
+
+== Trailer ==
+	10=103				- Message [[TAG10 - CheckSum]]
+
+{{~/Pictures/Greenshot Captures/2016-05-26 18_17_24-Ullink-FIX-Training.pdf - Foxit Reader.png}}
+

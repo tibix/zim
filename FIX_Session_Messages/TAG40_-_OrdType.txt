@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-31T16:57:54+03:00
+
+====== TAG40 - OrdType ======
+Created Tuesday 31 May 2016
+
+Order type.
+Valid values:  
+	//1 = Market//
+	//2 = Limit//
+	//3 = Stop//
+	//4 = Stop limit//
+	//5 = Market on close  (No longer used)//
+	//6 = With or without//
+	//7 = Limit or better (Deprecated)//
+	//8 = Limit with or without//
+	//9 = On basis//
+	//A = On close  (No longer used)//
+	//B = Limit on close  (No longer used)//
+	//C = Forex - Market  (No longer used)//
+	//D = Previously quoted//
+	//E = Previously indicated//
+	//F = Forex - Limit  (No longer used)//
+	//G = Forex - Swap//
+	//H = Forex - Previously Quoted  (No longer used)//
+	//I = Funari (Limit Day Order with unexecuted portion handled as Market On Close.   E.g. Japan)//
+	//J = Market If Touched (MIT)//
+	//K = Market with Leftover as Limit (market order then unexecuted quantity becomes limit order at last price)//
+	//L = Previous Fund Valuation Point (Historic pricing) (for CIV)//
+	//M = Next Fund Valuation Point –(Forward pricing) (for CIV)//
+	//P = Pegged// 
+*** SOME VALUES ARE NO LONGER USED - See "Deprecated (Phased-out) Features and Supported Approach" ***
+(see Volume : "Glossary" for value definitions)

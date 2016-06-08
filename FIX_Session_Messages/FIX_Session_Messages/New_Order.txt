@@ -1,0 +1,55 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-27T10:27:18+03:00
+
+====== New Order ======
+Created Friday 27 May 2016
+
+===== New Order - Tag 35=D Message Type: New =====
+
+==== Utilization ====
+
+The new order message type is used by institutions to electronically submit securities and Forex orders to a broker for execution.
+Orders can be submitted with special handling instructions and execution instructions.
+
+Ex: 8=FIX.4.2|9=0213|**35=D**|49=SCI|56=TCI|34=718|50=1441316|57=TRDN|52=20050816-10:28:11|60=20050816-10:28:11|**1=BG21**|**38=30000**|**40=2**|11=20050816-00039|**44=0.16**|**15=EUR**|75=20050816|**48=DE0006911324**|109=BG21|**21=1**|22=4|**54=1**|**55=AVG**|207=VY|59=0|10=158|
+
+==== Important tags and comments ====
+
+== Header ==
+	8=FIX.4.2			- Begin String
+	9=0213				- Message Length
+	**35=D				- Message Type = New Order (D)**
+	49=SCI				- Sender Company ID ([[TAG49 - SenderCompID]])
+	56=TCI				- Target Company ID ([[TAG56 - TargetCompID]])
+	34=718				- Message Sequence Number ([[TAG34 - MsgSeqNum]])
+	50=1441316			- Sender Sub ID
+	57=TRDN			- Target Sub ID
+	52=20050816-10:28:11	- Sending Time
+
+
+== Body ==
+	60=20050816-10:28:11	- Transaction Time
+	**1=BG21			- Account Mnemonic**
+	**38=30000			- Order Quantity**
+	**40=2				- Order Type (2: Limit)**
+	11=20050816-00039	- Unique identifier for Order as assigned by instituion
+	**44=0.16			- Price**
+	**15=EUR				- Currency**
+	75=20050816			- Trade Date
+	**48=DE0006911324	- Security ID**
+	109=BG21			- Clien ID (a firm identifier)
+	**21=1				- Handle Instance (1: STP; 2: Care Order)**
+	22=4				- IDSource (4: ISNI Number)
+	**54=1				- Side (1: Buy, 2: Sell)**
+	**55=AVG			- The Symbol (AGIV REAL ESTATE)**
+	207=VY				- Security Exchange
+	59=0				- How long order is in effect (0: Day)
+
+
+== Trailer ==
+	10=158				- [[TAG10 - CheckSum]] 
+	
+{{~/Pictures/Greenshot Captures/2016-05-31 15_03_47-Ullink-FIX-Training.pdf - Foxit Reader.png}}
+
+

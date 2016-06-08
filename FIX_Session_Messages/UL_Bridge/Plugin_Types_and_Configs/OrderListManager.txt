@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-06T09:25:27+03:00
+
+====== OrderListManager ======
+Created Monday 06 June 2016
+
+The purpose of this new module is to provide au automatic splitting mechanism for order lists in the ULBridge. The reason why we need such a module is that our sell-side client will send us order lists in FIX, and these order lists need to be routed as they come in the ULBridge so that they can be processed by ULIris as a whole. Then, after the ULIris validation, the new order lists needs to be split into a series of new single orders which will be routed to different execution venues.
+
+==== Sample config for OrderListManager ====
+
+//[class]//
+//name		= com.ullink.ulbridge2.modules.orderlist.OrderListManager//
+//source		= ${OrderListManager.class.source}//
+
+//[trace]//
+//level		= 4//
+
+//[session]//
+//prefix		= UL//
+
+//[routing]//
+//destination	= @route_ListModule//

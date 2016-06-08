@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-26T16:10:25+03:00
+
+====== FIX Session Messages ======
+Created Thursday 26 May 2016
+
+[[+Logon|Logon - Tag 35=A (Message Type = logon)]]
+[[+Test Request|Test Request - Tag 35=1 (Message type: Test Request)]]
+[[+Heartbeats|Heartbeats - Tag 35=0 (Message type: HeartBeat)]]
+[[+Logout|Logout - Tag 35=5 (Message Type: Logout)]]
+[[+Message Reject|Message Reject - Tag 35=3 (Message Type: Reject (3)]]
+[[+Resend Request|Resend Request - Tag 35=2 (Message Type: Resend Request (2))]]
+[[+New Order|New Order - Tag 35=D (Message Type: New Order (D))]]
+[[+Execution Report (acknowledgment)|Execution Report (acknowledgement) - Tag 35=8 (Message Type: Execution Report)]]
+[[+Execution Report (execution)|Execution Report (execution) - Tag 35=8 (Message Type: Execution Report)]]
+[[+Order Cancel - Replace Request|Order Cancel / Replace Request - Tag 35=G (Cancel/Replace Request)]]
+[[+Order Cancel Request|Order Cancel Request - Tag 35=F (Cancel/Replace Request)]]
+[[+Cancel Request Reject|Cancel Request Reject - Tag 35=9 (Cancel Request Reject)]]

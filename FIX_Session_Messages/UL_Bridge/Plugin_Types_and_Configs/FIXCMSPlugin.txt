@@ -1,0 +1,127 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-06T09:25:22+03:00
+
+====== FIXCMSPlugin ======
+Created Monday 06 June 2016
+
+Standard plugin used for Client or Broker that allows to translate from FIX message into ULMsg
+These plugins can be either **Inbound** (Sell) ot **Outbound **(Buy)
+
+==== Sample config for OUTBOUND (Buy): ====
+
+//[class] //
+//name                                               = FIXCMSPlugin //
+//source                                             = ${FIXCMSPlugin.class.source} //
+
+//[session] //
+//; Acceptor//
+//IP_port                                            = ${adapter.session.ip_port} //
+//type                                                = A //
+//; Initiator//
+//IP_machine                                    = ${%PLUG_NAME%.session.ip_machine} //
+//IP_port                                            = ${%PLUG_NAME%.session.ip_port} //
+//IP_machine_backup                      = ${%PLUG_NAME%.session.ip_machine_backup} //
+//IP_port_backup                              = ${%PLUG_NAME%.session.ip_port_backup} //
+//type                                                 = I//
+//connection-attempts                     = ${adapter.session.connection-attempts} [to set to 3 in PROD]//
+//switchbackup                                 = 2//
+//switch-to-primary-at-reset          = true//
+//senderCompID                               = ${%PLUG_NAME%.session.sendercompid} //
+//targetCompID                                = ${%PLUG_NAME%.session.targetcompid} //
+//HeartBeat                                       = 30//
+//non-resent                                      = D,G,E,AB,AC,s,t //
+//version                                             = FIX.4.4 //
+
+//[cms] //
+//cfb-name                                         = %PLUG_NAME%.cfb //
+//compiler                                            = message-driven //
+
+//[timers/doResetdoStart] //
+//action                                                = doReset();doStart()//
+//trigger                                               = 0 00 06 ? * MON-FRI; //
+//timezone                                           = Europe/Paris //
+
+//[timers/doStopdoReset] //
+//action                                                = doStop();doReset()//
+//trigger                                               = 0 00 20 ? * MON-FRI; //
+//timezone                                           = Europe/Paris //
+
+//[options] //
+//; Acceptor//
+//support-port-centralisation            = true //
+
+//[category] //
+//name                                                  = OUT//
+
+//[trace] //
+//level                                                     = 4//
+
+//[routing] //
+//destination                                          = ... //
+
+//[attachment-condition] //
+//0                                                            = ... //
+
+//[note] //
+//comment                                               = Contact\nTel: +1 xxx-xxx-xxx\nMail: contact@mail.com//
+
+
+==== Sample config for INBOUND (Buy): ====
+
+//[class] //
+//name                                                      = FIXCMSPlugin //
+//source                                                     = ${FIXCMSPlugin.class.source} //
+
+//[session] //
+//; Acceptor//
+//IP_port                                                     = ${adapter.session.ip_port} //
+//type                                                         = A //
+//; Initiator//
+//IP_machine                                             = ${%PLUG_NAME%.session.ip_machine} //
+//IP_port                                                     = ${%PLUG_NAME%.session.ip_port} //
+//IP_machine_backup                              = ${%PLUG_NAME%.session.ip_machine_backup} //
+//IP_port_backup                                      = ${%PLUG_NAME%.session.ip_port_backup} //
+//type                                                         = I//
+//connection-attempts                             = ${adapter.session.connection-attempts} [to set to 3 in PROD]//
+//switchbackup                                         = 2//
+//switch-to-primary-at-reset                  = true//
+//senderCompID                                       = ${%PLUG_NAME%.session.sendercompid} //
+//targetCompID                                        = ${%PLUG_NAME%.session.targetcompid} //
+//HeartBeat                                               = 30//
+//ignorePossDupFlag                               = D,G,E,AB,AC,s,t //
+//version                                                     = FIX.4.4 //
+//prefix                                                        = X_              [ to set, must be unique ] //
+
+//[cms] //
+//cfb-name                                                 = %PLUG_NAME%.cfb //
+//compiler                                                   = message-driven //
+
+//[timers/doStart] //
+//action                                                       = doStart()         //
+//trigger                                                      = 0 00 06 ? * MON-FRI; //
+//timezone                                                  = Europe/Paris //
+
+//[timers/doStopdoReset] //
+//action                                                       = doStop();doReset()         //
+//trigger                                                      = 0 00 20 ? * MON-FRI; //
+//timezone                                                  = Europe/Paris //
+
+//[options] //
+//; Acceptor//
+//support-port-centralisation                   = true //
+
+//[category] //
+//name                                                         = IN //
+
+//[trace] //
+//level                                                           = 4 //
+
+//[routing] //
+//destination                                               = ... //
+
+//[attachment-condition] //
+//0                                                                 = ... //
+
+//[note] //
+//comment                                                   = Contact\nTel: +1 xxx-xxx-xxx\nMail: contact@mail.com//

@@ -1,0 +1,121 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-31T17:02:11+03:00
+
+====== UL Bridge ======
+Created Tuesday 31 May 2016
+
+==== Name: GROUP-PA_ULBRIDGE ====
+
+==== Plugins: ====
+	
+	==== - O_ULNET - Initiator ====
+
+O_ULNET config:
+[class]
+name                                               = com.ullink.ulbridge2.plugins.FIXCMSPlugin
+source                                             = ${FIXCMSPlugin.class.source}
+
+//[-session] //section commented out (this will not be considered at run time)//
+//IP_machine                                         = ${ulnet.session.ip_machine}//
+//IP_port                                            = ${ulnet.session.ip_port}//
+//type                                               = I//
+//SenderCompID                                       = ${O_ULNET.session.sendercompid}//
+//TargetCompID                                       = ${O_ULNET.session.targetcompid}//
+//HeartBeat                                          = 30//
+//Version                                            = FIX.4.4//
+
+[session]
+IP_port                                            	= ${adapter.session.ip_port}
+type                                               		= A
+SenderCompID                                      = ${O_ULNET.session.sendercompid}
+TargetCompID                                       = ${O_ULNET.session.targetcompid}
+retrytimeout                                     = 15
+HeartBeat                                          = 30
+checkCompID                                        = Y
+enable-message-reject                              = Y
+Version                                            = FIX.4.4
+ignorepossdupflag                                  = D,G,E,AB,AC,S,t,u
+
+[timers/doResetdoStart]
+action                                             = doReset ; doStart
+trigger                                            = 0 00 02 ? * MON-FRI;
+TimeZone                                           = Europe/Paris
+
+[timers/doStop]
+action                                             = doStop
+trigger                                            = 0 55 23 ? * MON-FRI;
+TimeZone                                           = Europe/Paris
+
+[options]
+strict-grammar                                     = false
+support-port-centralisation                        = true
+
+[category]
+name                                               = Broker Access
+
+[unacknowledged-orders]
+timeout                                            = 0
+
+[attachment-condition]
+0                                                  = if ( $MSGTYPE = "executionreport" ) then &Unpersist_Execbroker
+1                                                  = if ( $MSGTYPE = "executionreport" ) then &O_ULNET_MappingBroker
+
+	==== - I_DIMENSION_FIX42 - Acceptator ====
+
+[class]
+name                                               = FIXCMSPlugin
+source                                             = ${FIXCMSPlugin.class.source}
+
+[session]
+IP_port                                            = ${adapter.session.ip_port}
+type                                               = A
+SenderCompID                                       = ${I_DIMENSION_FIX42.session.sendercompid}
+TargetCompID                                       = ${I_DIMENSION_FIX42.session.targetcompid}
+retrytimeout                                       = 15
+HeartBeat                                          = 30
+checkCompID                                        = Y
+enable-message-reject                              = Y
+Version                                            = FIX.4.2
+ignorepossdupflag                                  = D,G,E,AB,AC,S,t,u
+
+[cms]
+cfb-name                                           = I_GROUPAMA_FIX44.cfb
+
+
+[category]
+name                                               = Order Collect
+
+[timers/doStart]
+action                                             = doStart
+trigger                                            = 0 00 05 ? * MON-FRI;
+TimeZone                                           = Europe/Paris
+
+[timers/doStopdoReset]
+action                                             = doStop;doReset
+trigger                                            = 0 00 23 ? * MON-FRI;
+TimeZone                                           = Europe/Paris
+
+[options]
+strict-grammar                                     = false
+support-port-centralisation                        = true
+body-passthrough                                   = true
+
+[routing]
+destination                                        = @dimension_routing
+
+
+[unacknowledged-orders]
+timeout                                            = 0
+
+[attachment-condition]
+0 = if ($MSGTYPE="executionreport") then &DIMENSION_NORMALISATION
+1 = if ($MSGTYPE="new") then &tibi_copy_enrichment
+2 = if ($MSGTYPE="executionreport") then &tibi_simple_enrichment
+3 = if ($MSGTYPE="new") then &tibi_table_enrichment
+4 = if ($MSGTYPE="replace") then &tibi_table_replace_enrichment
+5 = if ($MSGTYPE="executionreport") then &tibi_java_enrich
+6 = if ($MSGTYPE="new") then &tibi_table_to_java_enrich
+
+[note]
+

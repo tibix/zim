@@ -1,0 +1,60 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-31T15:27:25+03:00
+
+====== Execution Report (execution) ======
+Created Tuesday 31 May 2016
+
+===== Execution Report (execution) - Tag 35=8 (Message Type: Execution Report) =====
+
+==== Utilization ====
+
+In this example the execution report is used to inform the counterparty that an execution has been carried out on the market. Execution report is identified with (35=8, execution report). The execution report is also used to change the status if the order (Pending new, partially filled, cancelled…). The type of report is determined with tag 39, which is the new status of the order. We know that it is an execution because the status is in this example set to partially filled (39=1).
+The order is totally filled when the number of shares executed is equals to the total order quantity. The last execution set the status of the order to Filled (39=2)
+
+Ex: 8=FIX.4.2|9=245|**35=8**|49=TCI|56=SCI|34=689|52=20050816-10:03:51|50=TRDN|57=1441316|22=4|1=BG21|5=AGV|48=DE0006911324|37=0002360574941|11=20050816-00039|**150=1**|20=0|**39=1**|54=1|38=30000|59=0|17=02000791|40=2|**44=0.16**|**151=23000**|**31=0.15700**|**32=7000**|**6=0.157000**|**14=7000**|204=0|10=055|
+
+==== Important tags and comments ====
+
+== Header ==
+	8=FIX.4.2			- Begin String
+	9=245				- Message Length
+	**35=8				- Message Type 35=8 (Execution Report)**
+	49=SCI				- Sender Company ID ([[TAG49 - SenderCompID]])	
+	56=TCI				- Target Company ID ([[TAG56 - TargetCompID]])		
+	34=689				- Message Sequence Number ([[TAG34 - MsgSeqNum]])
+	52=20050816-10:03:51	- Sending Time
+	50=TRDN			- Sender Sub ID
+	57=1441316			- Target Sub ID
+
+
+== Body ==
+	22=4				- IDSource (4: ISIN number)
+	1=BG21				- Account Mnemonic
+	5=AGV				- Symbol
+	48=DE0006911324	- Security ID
+	37=0002360574941	- Unique identifier for Order as assigned by broker (OrdID)
+	11=20050816-00039	- Unique identifier for Order as assigned by institution (ClordID)
+	**150=1				- Execution Report Type (1: Partially filled)**
+	20=0				- Identifies transaction type (0: new)
+	**39=1				- Order Status (1: Partially Filled)**
+	54=1				- Side (1: Buy, 2: Sell)
+	38=30000			- Order quantity
+	59=0				- Time in Force (0: Day validity)
+	17=02000791			- Unique identifier of execution message as assigned by broker
+	40=2				- Order Type (2: Limit)
+	**44=0.16			- Price**
+	**151=23000			- Amount Shares open for further executions**
+	**31=0.15700			- Price of this last fill**
+	**32=7000			- Quantity of shares on this last fill**
+	**6=0.157000			- Avearge price of all fills on this order**
+	**14=7000			- Total number of shares filled**
+	204=0				- Customer or Firm (0: Customer)
+
+
+== Trailer ==
+	10 = 055				- [[TAG10 - CheckSum]]
+	
+{{~/Pictures/Greenshot Captures/2016-05-31 15_44_34-Ullink-FIX-Training.pdf - Foxit Reader.png}}
+
+

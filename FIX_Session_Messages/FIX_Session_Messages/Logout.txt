@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-26T18:18:44+03:00
+
+====== Logout ======
+Created Thursday 26 May 2016
+
+===== Logout - Tag 35=5 (Message Type: Logout) =====
+
+==== Utilization ====
+
+Normal termination of the message exchange session is completed via the exchange of Logout messages. Termination by other means is considered as an error.
+Before actually closing the session, the Logout initiator should wait for the opposite side to respond with a confirming Logout message. Logging out does not affect the state of any orders. All active orders will continue to be eligible for execution after logout.
+
+Ex: 8=FIX.4.2|9=72|**35=5**|49=SCI|56=TCI|34=1347|52=20050728-17:00:12|57=ADMIN|58=halt asked|10=063|
+
+==== Important tags and comments ====
+
+== Header ==
+	8=FIX.4.2			- Begin String
+	9=72				- Message Length
+	**35=5				- Message Type: Logout (5)**
+	49=SCI				- Sender Company ID ([[TAG49 - SenderCompID]])
+	56=TCI				- Target Company ID ([[TAG56 - TargetCompID]])
+	34=1347				- Message Sequence Number ([[TAG34 - MsgSeqNum]])
+	52=20050728-17:00:12	- Sending Time
+	57=ADMIN			- Target Sub ID
+	
+== Body ==
+	58=halt asked		- Free Text
+	
+== Trailer ==
+	10=063				- Message [[TAG10 - CheckSum]] 
+	
+{{~/Pictures/Greenshot Captures/2016-05-26 18_26_08-Ullink-FIX-Training.pdf - Foxit Reader.png}}
+
+

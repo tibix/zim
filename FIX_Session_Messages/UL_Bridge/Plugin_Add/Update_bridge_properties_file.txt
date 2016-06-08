@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-02T09:34:14+03:00
+
+====== Update bridge properties file ======
+Created Thursday 02 June 2016
+
+[ ] Open bridge Setup page 
+[ ] Select Advanced View (from left bottom corner)
+[ ] Go to **"Properties"** option on the top menu
+[ ] Click on the file name <//bridge_name.//properties.windows>
+[ ] Go to the botom of the file and add the instructions for your plugin
+	[ ] For Outbound (Buy):
+		[ ] O//_PLUGINNAME_FIXv.//session.ip_machine
+		[ ] O//_PLUGINNAME_FIXv.//session.ip_port
+		[ ] O//_PLUGINNAME_FIXv.//session.sendercompid
+		[ ] O//_PLUGINNAME_FIXv.//session.targetcompid
+	[ ] For Inbound (Sell):
+		[ ] //I_PLUGINNAME_FIXv//.sendercompid
+		[ ] //I_PLUGINNAME_FIXv//.targetcompid
+[ ] Once all instructions are added, click the **"Apply" **button on the bottom right corner
+
+==== NOTE: with every change brought to properties file, you should reload the config file. ====
+[[Reload properties file|Reload bridge's properties file]]

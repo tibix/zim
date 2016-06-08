@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-06T09:25:52+03:00
+
+====== ULDASHBOARDModule ======
+Created Monday 06 June 2016
+
+This module allows you to view and edit ULBridge parameters from an integrated view rather then a WebUI.
+
+==== Sample configuration for ULDASHBOARDModule ====
+
+//[class]//
+//name				= com.ullink.ulbridge2.modules.ULDASHBOARDModule//
+
+//[configuration]//
+//host				= ${uldashboardmodule.configuration.host}//
+//port					= ${uldashboardmodule.configuration.port}//
+//application.name		= ${ulbridge.general.displayname}//
+//platform.type		= ${ulbridge.general.theme}//
+//application.group		= ${uldashboardmodule.configuration.group}//
+//autoupdate.mode	= all//
+
+//[groups]//
+
+//[heidi]//
+//authentication-by-dashboard-server 	= False//

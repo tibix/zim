@@ -1,0 +1,47 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-31T16:38:18+03:00
+
+====== Cancel Request Reject ======
+Created Tuesday 31 May 2016
+
+===== Cancel Request Reject - Tag 35=9 (Cancel Request Reject) =====
+
+==== Utilization ====
+
+The Order Cancel Reject is issued by the broker if a cancel request or a cancel / replace request cannot be processed. 
+A request can be rejected manually (by a trader for example) or automatically (iftrying to lower the quantity or cancel / modify an order which is fully filled).
+
+Ex: 8=FIX.4.2|9=188|**35=9**|49=TCI|56=SCI|34=541|52=20050728-10:20:20|50=ODDO|128=AGFAM|37=1055c779aa3-000|**11=227497-25182**|**41=227497-24997**|39=2|60=20050728-10:20:20|**434=1**|**102=2**|58=Too late to Cancel|10=108|
+
+==== Important tags and comments ====
+
+== Header ==
+	8=FIX.4.2				- Begin String
+	9=188					- Message length
+	**35=9					- Message Type (9: Order Cancel Reject)**
+	49=SCI					- Sender Company ID ([[TAG49 - SenderCompID]])			
+	56=TCI					- Target Company ID (TargetComID)
+	34=541					- Message Sequence Number ([[TAG34 - MsgSeqNum]])
+	52=20050728-10:20:20		- Sending Time 
+	50=ODDO				- Sender Sub ID
+	128=AGFAM				- Targeted Firm ID
+
+
+== Body ==
+	37=1055c779aa3-000		- Unique identifier for Order as assigned by broker (OrderID)
+	**11=227497-25182		- ClOrdID**
+	**41=227497-24997		- OrigClordID**
+	39=2					- Order Status (2: filled)
+	60=20050728-10:20:20		- Transation time
+	**434=1					- The type of request that the Cancel Reject is in response to (1: Order Cancel Request)**
+	**102=2					- Reason for cancel rejection (0: Too late to cancel)**
+	58=Too late to Cancel		- Free format  text string
+
+
+== Trailer ==
+	10=108					- [[TAG10 - CheckSum]]
+
+
+{{~/Pictures/Greenshot Captures/2016-05-31 16_50_23-Ullink-FIX-Training.pdf - Foxit Reader.png}}
+
