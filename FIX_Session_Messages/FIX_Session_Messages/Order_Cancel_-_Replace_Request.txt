@@ -19,9 +19,9 @@ Ex: 8=FIX.4.2|9=0230|**35=G**|49=SCI|56=TCI|34=818|50=1441316|57=TRDN|52=2005081
 	8=FIX.4.2				- Begin String
 	9=0230					- Message Lenght
 	**35=G					- Message Type 35=G (Cancel/Replace Request)**
-	49=SCI					- Sender Company ID ([[TAG49 - SenderCompID]])
-	56=TCI					- Target Company ID ([[TAG56 - TargetCompID]])
-	34=818					- Message Sequence Number ([[TAG34 - MsgSeqNum]])
+	49=SCI					- Sender Company ID ([[Important Tags:TAG49 - SenderCompID]])
+	56=TCI					- Target Company ID ([[Important Tags:TAG56 - TargetCompID]])
+	34=818					- Message Sequence Number ([[Important Tags:TAG34 - MsgSeqNum]])
 	50=1441316				- Sender Sub ID
 	57=TRDN				- Target Sub ID
 	52=20050816-11:17:06		- Sending Time
@@ -48,7 +48,7 @@ Ex: 8=FIX.4.2|9=0230|**35=G**|49=SCI|56=TCI|34=818|50=1441316|57=TRDN|52=2005081
 
 
 == Trailer ==
-	10=246					- [[TAG10 - CheckSum]] 
+	10=246					- [[Important Tags:TAG10 - CheckSum]] 
 	
 {{~/Pictures/Greenshot Captures/2016-05-31 15_57_06-Ullink-FIX-Training.pdf - Foxit Reader.png}}
 

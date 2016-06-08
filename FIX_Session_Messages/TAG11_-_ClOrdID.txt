@@ -1,8 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2016-05-31T16:51:14+03:00
-
-====== TAG11 - ClOrdID ======
-Created Tuesday 31 May 2016
-
-Unique identifier for Order as assigned by the buy-side (institution, broker, intermediary  etc.) (identified by SenderCompID (49) or OnBehalfOfCompID (5) as appropriate).  Uniqueness must be guaranteed within a single trading day.  Firms, particularly those  which electronically submit multi-day orders, trade globally or throughout market close periods, should ensure  uniqueness across days, for example by embedding a date within the ClOrdID field.

@@ -1,9 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2016-06-08T11:24:04+03:00
-
-====== TAG52 - SendingTime ======
-Created Wednesday 08 June 2016
-
-Time of message transmission (always expressed in UTC (Universal Time Coordinated, also known as "GMT")
-UTCTime format: YYYYMMDD-HH:mm:ss.ms

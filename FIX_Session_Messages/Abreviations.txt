@@ -5,10 +5,17 @@ Creation-Date: 2016-05-31T17:55:00+03:00
 ====== Abreviations ======
 Created Tuesday 31 May 2016
 
-STP - Straigth to Process = DMA - Direct Market Access (Refference [[TAG21 - HandInst|HandInst]] = 1)
-CTB - Change the Bank  (FIX Onboarding, IMplementation, Fast Track, Suport Experts, CSM-Client Service Managers)
-RTB - Run the Bank (PM, Sales)
-NOE - Notice of Execution
-CAB - Change Advisory Board
-RFC - Request For Change
-BAU - Bussiness as usual
+**STP** - Straigth to Process = DMA - Direct Market Access (Refference [[Important Tags:TAG21 - HandInst|HandInst]] = 1)
+**CTB** - Change the Bank  (FIX Onboarding, IMplementation, Fast Track, Suport Experts, CSM-Client Service Managers)
+**RTB** - Run the Bank (PM, Sales)
+**NOE** - Notice of Execution
+**CAB** - Change Advisory Board
+**RFC** - Request For Change
+**BAU** - Bussiness as usual
+**CSM** - Client Service Manager
+**PM** - Project Manager
+**MS** - Managed Services
+**ITN** - IT Networking (Jira: Sysnet Network)
+**RFC** - Request for Change
+**UAT** - User Acceptance testing
+**ECN** - Electronic Communication Network

@@ -1,8 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2016-06-08T11:00:28+03:00
-
-====== TAG99 - StopPx (Price) ======
-Created Wednesday 08 June 2016
-
-Price per unit of quantity (e.g. per share)

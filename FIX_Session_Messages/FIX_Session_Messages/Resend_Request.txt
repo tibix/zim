@@ -22,9 +22,9 @@ Ex: 8=FIX.4.2|9=72|**35=2**|49=ULLINK|56=NYFIX|34=80|**369=1188**|52=20050630-13
 	8=FIX.4.2				- Begin String
 	9=72					- Message Length
 	**35=2					- Message Type = Resend Request (2) -G?**
-	49=ULLINK				- Sender Company ID ([[TAG49 - SenderCompID]])
-	56=NYFIX				- Target Company ID ([[TAG56 - TargetCompID]])
-	34=80					- Message Sequence Number ([[TAG34 - MsgSeqNum]])
+	49=ULLINK				- Sender Company ID ([[Important Tags:TAG49 - SenderCompID]])
+	56=NYFIX				- Target Company ID ([[Important Tags:TAG56 - TargetCompID]])
+	34=80					- Message Sequence Number ([[Important Tags:TAG34 - MsgSeqNum]])
 	**369=1188				- Last Message Number Processed**
 	52=20050630-13:35:20		- Sending Time
 
@@ -34,7 +34,7 @@ Ex: 8=FIX.4.2|9=72|**35=2**|49=ULLINK|56=NYFIX|34=80|**369=1188**|52=20050630-13
 	**16=0					- Message sequence number of last message in range to be resent (0 = infinity)**
 	
 == Trailer ==
-	10=079					- Mesasge [[TAG10 - CheckSum]]
+	10=079					- Mesasge [[Important Tags:TAG10 - CheckSum]]
 
 
 {{~/Pictures/Greenshot Captures/2016-05-27 10_26_32-Ullink-FIX-Training.pdf - Foxit Reader.png}}

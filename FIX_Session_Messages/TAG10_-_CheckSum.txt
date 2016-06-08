@@ -1,8 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2016-05-26T16:39:17+03:00
-
-====== TAG10 - CheckSum ======
-Created Thursday 26 May 2016
-
-The [[TAG10 - CheckSum]] integrity of a FIX message is calculated by summing the binary value of each character and taking only the least significant eight bits.

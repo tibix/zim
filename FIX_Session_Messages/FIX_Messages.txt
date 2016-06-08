@@ -18,7 +18,7 @@ A message is always composed of 3 parts:
 		# message type (defines the data in the body)
 		# length of the message
 	- **body message** is determined by the message type specified in the header
-	- **trailer** that containes the [[TAG10 - CheckSum]] of the message.
+	- **trailer** that containes the [[Important Tags:TAG10 - CheckSum]] of the message.
 	
 Example of FIX message: 8=FIX.4.1**|**9=0235**|**35=D**|**34=10**|**43=N**|**49=VENDOR**|**50=CUSTOMER**|**56=BROKER
 **|**52=19980930-09:25:58**|**1=XQCCFUND**|**11=10**|**21=1**|**55=EK**|**48=277461109**|**22=1**|**
@@ -30,25 +30,25 @@ Example of FIX message: 8=FIX.4.1**|**9=0235**|**35=D**|**34=10**|**43=N**|**49=
 8=FIX.4.1 			- Begin String
 9=235				- Body Length
 35=D				- MsgType (D = NewOrder)
-34=10				- [[TAG34 - MsgSeqNum]]
+34=10				- [[Important Tags:TAG34 - MsgSeqNum]]
 43=N				- Possible Duplicate Flag
-49=VENDOR			- [[TAG49 - SenderCompID]]
-115=CUSTOR		- [[TAG115 - OnBehalfOfCompID]]
-56=BROKER			- [[TAG56 - TargetCompID]]
+49=VENDOR			- [[Important Tags:TAG49 - SenderCompID]]
+115=CUSTOR		- [[Important Tags:TAG115 - OnBehalfOfCompID]]
+56=BROKER			- [[Important Tags:TAG56 - TargetCompID]]
 52=20050901-09:25:58	- Sending Time
 
 ==== Body ====
 1=XQCCFUND		- Account
-11=12345			- [[TAG11 - ClOrdID]] (Client Order ID)
-21=1				- [[TAG21 - HandInst]] (Handle Instance)
+11=12345			- [[Important Tags:TAG11 - ClOrdID]] (Client Order ID)
+21=1				- [[Important Tags:TAG21 - HandInst]] (Handle Instance)
 55=EK				- Symbol
-48=277461109		- [[TAG48 - SecurityID]]
+48=277461109		- [[Important Tags:TAG48 - SecurityID]]
 22=1				- IDSource
 54=1				- Side (1:Sell | 2:Buy)
-38=10000			- [[TAG38 - OrderQty]] (Order Quantity)
-40=2				- [[TAG40 - OrdType]] (Order Type)
+38=10000			- [[Important Tags:TAG38 - OrderQty]] (Order Quantity)
+40=2				- [[Important Tags:TAG40 - OrdType]] (Order Type)
 44=76.7500000		- Price
-59=0				- [[TAG59 - TimeInForce]] (0 = Day(or session)
+59=0				- [[Important Tags:TAG59 - TimeInForce]] (0 = Day(or session)
 
 ==== Trailer ====
-10=165				- [[TAG10 - CheckSum]]
+10=165				- [[Important Tags:TAG10 - CheckSum]]

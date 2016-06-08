@@ -20,9 +20,9 @@ Ex: 8=FIX.4.2|9=0098|**35=3**|49=TCI|56=SCI|34=201|52=20050712-07:15:05|50=ADMIN
 	8=FIX.4.2				- Begin String
 	9=0098					- Message Length
 	**35=3					- Message Type = Reject (3)**
-	49=TCI					- Target Company ID ([[TAG56 - TargetCompID]])
-	56=SCI					- Sender Company ID ([[TAG49 - SenderCompID]])
-	34=201					- Message Sequence Number ([[TAG34 - MsgSeqNum]])
+	49=TCI					- Target Company ID ([[Important Tags:TAG56 - TargetCompID]])
+	56=SCI					- Sender Company ID ([[Important Tags:TAG49 - SenderCompID]])
+	34=201					- Message Sequence Number ([[Important Tags:TAG34 - MsgSeqNum]])
 	52=20050712-07:15:05		- Sending Time
 	50=ADMIN				- Sender Sub ID: message originator
 	57=TSI					- Target Sub ID: specific destination
@@ -33,7 +33,7 @@ Ex: 8=FIX.4.2|9=0098|**35=3**|49=TCI|56=SCI|34=201|52=20050712-07:15:05|50=ADMIN
 	**58=Bad targets: AUDI	- Free format text string to explain reason for rejection**
 	
 == Trailer ==
-	10=113					- Message [[TAG10 - CheckSum]]
+	10=113					- Message [[Important Tags:TAG10 - CheckSum]]
 	
 
 {{~/Pictures/Greenshot Captures/2016-05-26 18_36_10-Ullink-FIX-Training.pdf - Foxit Reader.png}}
