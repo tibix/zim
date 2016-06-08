@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-08T11:01:28+03:00
+
+====== TAG17 - ExecID ======
+Created Wednesday 08 June 2016
+
+Unique identifier of execution message as assigned by sell-side (broker, exchange, ECN) (will be 0 (zero) for ExecType (50) =I (Order Status)).  
+Uniqueness must be guaranteed within a single trading day or the life of a multi-day order.  
+Firms which accept multi-day orders should consider embedding a date within the ExecID field to assure uniqueness across days. (Prior to FIX 4. this field was of type int)
