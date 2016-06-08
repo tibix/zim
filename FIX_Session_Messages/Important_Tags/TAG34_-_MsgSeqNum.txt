@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-26T17:01:55+03:00
+
+====== TAG34 - MsgSeqNum ======
+
+Created Thursday 26 May 2016
+
+All FIX messages are identified by a unique sequence number. 
+Sequence numbers are initialized at the start of each trading day starting at one and incremented throughout the session. 
+Monitoring sequence numbers will enable parties to identify and react to missed messages and to synchronize applications when reconnecting during a FIX session. Furthermore the FIX protocol assumes complete ordered delivery of messages between parties.

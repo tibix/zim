@@ -1,0 +1,146 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-08T19:11:35+03:00
+
+====== TAG167 - SecurityType ======
+Created Wednesday 08 June 2016
+
+Indicates type of security.  See also the Product (460) and CFICode (46) fields. It is recommended that CFICode be used instead of SecurityType for non-Fixed Income instruments.
+Example values (grouped by Product field value)  (Note: additional values may be used by mutual agreement of the counterparties):  
+
+Usual types of securityes:
+**CS** - Common Stock
+**FUT** - Future
+**OPT** - Option
+
+=== AGENCY ===
+	EUSUPRA = Euro Supranational Coupons * 
+	FAC = Federal Agency Coupon
+	FADN = Federal Agency Discount Note
+	PEF = Private Export Funding *
+	SUPRA = USD Supranational Coupons *
+	* Identify the Issuer in the "Issuer" field(06)
+	*** REPLACED values - See "Replaced Features and Supported Approach" ***
+	 COMMODITY
+	  FUT = Future
+	  OPT = Option
+
+
+== Note: COMMODITY Product includes Bond, Interest Rate, Currency, Currency Spot Options, Crops/Grains, Foodstuffs, Livestock, Fibers, Lumber/Rubber, Oil/Gas/Electricity, Precious/Major Metal, and Industrial Metal.  Use CFICode (46) for more granular definition if necessary. ==
+
+=== CORPORATE ===
+	CORP = Corporate Bond
+	CPP = Corporate Private Placement
+	CB = Convertible Bond
+	DUAL = Dual Currency
+	EUCORP = Euro Corporate Bond
+	XLINKD = Indexed Linked
+	STRUCT = Structured Notes
+	YANK = Yankee Corporate Bond
+	CURRENCY
+	FOR = Foreign Exchange Contract
+	EQUITY
+	CS = Common Stock
+	PS = Preferred Stock
+	WAR - Warrant now is listed under Municipals for consistency with Bloomberg fixed income product types. For equity warrants - use the CFICode (46) instead.
+	GOVERNMENT
+	BRADY = Brady Bond
+	EUSOV = Euro Sovereigns *
+	TBOND = US Treasury Bond
+	TINT = Interest strip from any bond or note
+	TIPS = Treasury Inflation Protected Securities
+	TCAL = Principal strip of a callable bond or note
+	TPRN = Principal strip from a non-callable bond or note
+	UST = US Treasury Note (deprecated value, use "TNOTE")
+	USTB = US Treasury Bill (deprecated value, use "TBILL")
+	TNOTE = US Treasury Note
+	TBILL = US Treasury Bill
+	"–"
+	* Identify the Issuer Name in Issuer (06)
+
+
+=== FINANCING ===
+	REPO = Repurchase
+	FORWARD = Forward
+	BUYSELL = Buy Sellback
+	SECLOAN = Securities Loan
+	SECPLEDGE = Securities Pledge
+	INDEX
+	Note: "Indices" includes: Stock, Index Spot Options, Commodity, Physical Index Options, Share/Ratio, and Spreads.  For index types use the CFICode (46).
+
+
+=== LOAN ===
+	TERM = Term Loan
+	RVLV = Revolver Loan
+	RVLVTRM = Revolver/Term Loan
+	BRIDGE = Bridge Loan
+	LOFC = Letter of Credit
+	SWING = Swing Line Facility
+	DINP = Debtor in Possession
+	DEFLTED = Defaulted
+	WITHDRN = Withdrawn
+	REPLACD = Replaced
+	MATURED = Matured
+	AMENDED = Amended & Restated
+	RETIRED = Retired
+	MONEYMARKET
+	BA = Bankers Acceptance
+	BN = Bank Notes
+	BOX = Bill of Exchanges
+	CD = Certificate of Deposit
+	CL = Call Loans
+	CP = Commercial Paper
+	DN = Deposit Notes
+	EUCD = Euro Certificate of Deposit
+	EUCP = Euro Commercial Paper
+	LQN = Liquidity Note
+	MTN = Medium Term Notes
+	ONITE = Overnight
+	PN = Promissory Note
+	PZFJ = Plazos Fijos
+	STN = Short Term Loan Note
+	TD = Time Deposit
+	XCN = Extended Comm Note
+	YCD = Yankee Certificate of Deposit
+	
+=== MORTGAGE ===
+	ABS = Asset-backed Securities
+	CMBS = Corp. Mortgage-backed Securities
+	CMO = Collateralized Mortgage Obligation
+	IET = IOETTE Mortgage
+	MBS = Mortgage-backed Securities
+	MIO = Mortgage Interest Only
+	MPO = Mortgage Principal Only
+	MPP = Mortgage Private Placement
+	MPT = Miscellaneous Pass-through
+	PFAND = Pfandbriefe *
+	TBA = To be Announced
+	* Identify the Issuer Name in Issuer (06)
+
+
+=== MUNICIPAL ===
+	AN = Other Anticipation Notes BAN, GAN, etc.
+	COFO = Certificate of Obligation
+	COFP = Certificate of Participation
+	GO = General Obligation Bonds
+	MT = Mandatory Tender
+	RAN = Revenue Anticipation Note
+	REV = Revenue Bonds
+	SPCLA = Special Assessment
+	SPCLO = Special Obligation
+	SPCLT = Special Tax
+	TAN = Tax Anticipation Note
+	TAXA = Tax Allocation
+	TECP = Tax Exempt Commercial Paper
+	TRAN = Tax & Revenue Anticipation Note
+	VRDN = Variable Rate Demand Note
+	WAR = Warrant
+
+
+=== OTHER ===
+	MF = Mutual Fund (i.e. any kind of open-ended "Collective Investment Vehicle")
+	MLEG = Multi-leg instrument (e.g. options strategy or futures spread.  CFICode (46) can be used to identify if options-based, futures-based, etc.)
+	NONE = No Security Type
+	? = "Wildcard" entry (used on Security Definition Request message)
+	
+== NOTE: Additional values may be used by mutual agreement of the counterparties) ==

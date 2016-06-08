@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-08T19:16:07+03:00
+
+====== TAG200 - MaturityMonthYear ======
+Created Wednesday 08 June 2016
+
+Can be used with standardized derivatives vs. the MaturityDate (541) field.  Month and Year of the maturity (used for standardized **futures** and **options**). 
+
+=== Format: ===
+	**YYYYMM      (i.e. 199903)**
+	**YYYYMMDD (20030323)**
+	**YYYYMMwN (200303w) for week**
+
+A specific date or can be appended to the MaturityMonthYear. For instance, if multiple standard products exist that mature in the same Year and Month, but actually mature at a different time, a value can be appended, such as "w" or "w2" to indicate week  as opposed to week 2 expiration. Likewise, the date (0-3) can be appended to indicate a specific expiration (maturity date).

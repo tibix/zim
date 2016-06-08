@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-08T19:20:26+03:00
+
+====== TAG128 - DeliverToCompID ======
+Created Wednesday 08 June 2016
+
+Assigned value used to identify the firm targeted to receive the message if the message is delivered by a third party   i.e.  the third party firm identifier would be delivered in the TargetCompID ([[TAG56 - TargetCompID|56]]) field and the ultimate receiver firm ID in this field.

@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-08T19:03:03+03:00
+
+====== TAG22 - SecurityIDSource ======
+Created Wednesday 08 June 2016
+
+Identifies class or source of the SecurityID ([[TAG48 - SecurityID|48]]) value.  Required if SecurityID is specified.
+Valid values:
+	//1 = CUSIP//
+	//2 = SEDOL//
+	//3 = QUIK//
+	//4 = ISIN number//
+	//5 = RIC code//
+	//6 = ISO Currency Code//
+	//7 = ISO Country Code//
+	//8 = Exchange Symbol//
+	//9 = Consolidated Tape Association (CTA) Symbol (SIAC CTS/CQS line format)//
+	//A = Bloomberg Symbol//
+	//B = Wertpapier//
+	//C = Dutch//
+	//D = Valoren//
+	//E = Sicovam//
+	//F = Belgian//
+	//G = "Common" (Clearstream and Euroclear)//
+	//H = Clearing House / Clearing Organization//
+	//I = ISDA/FpML Product Specification//
+	//J = Options Price Reporting Authority//
+	//00+ are reserved for private security identifications//
