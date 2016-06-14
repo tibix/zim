@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-02T09:33:32+03:00
+
+====== Add INI file ======
+Created Thursday 02 June 2016
+
+[ ] Open bridge Setup page 
+[ ] Select Advanced View (from left bottom corner)
+[ ] Click on **"Add ..."** button (from right bottom corner)
+[ ] On the "**Name:"** input box (top left corner) insert the name of the INI file (is best to name it as you CFB file - just the name, no extension).
+[ ] Copy the content of your ini file in the large white space (editing area).
+[ ] If the option "View property values" is checked, your config place holders should show the actual values instead of variable name.
+[ ] When you are happy with your INI file, click on "**OK"** button
+[ ] If all steps are done correctly, you should have a new plugin showing in the **"Plugins"** page. 
+
+
+==== Note: if session.sendercompid and session.targetcompid are not resolved, is because the properties for this values were not configured in the global ini file of the bridge ====
+
+== Next: ==
+[[Update bridge properties file]]

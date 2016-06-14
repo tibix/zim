@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-02T10:12:16+03:00
+
+====== Reload properties file ======
+Created Thursday 02 June 2016
+
+[ ] Select Standard view from (left bottom corner)
+[ ] Choose **"Operations"** from top menu
+[ ] Click on **"Advanced"** tab
+[ ] In **"Filter"** input field type //properti// and hit Enter
+[ ] Go to **ulbridge** folder in the tree view section and expand it
+[ ] Expand the **"ULBridgeManagement.ULBridgeManagement"** section
+[ ] Select //reloadPropertiesFile// option and click on the **"Invoke"** button
+[ ] You should receive a pop-ul windows with message **"NULL"**, otherwise the properties file contains invalid instructions.
+
+
+

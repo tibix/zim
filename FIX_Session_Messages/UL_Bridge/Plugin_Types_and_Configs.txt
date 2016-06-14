@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-06T09:18:16+03:00
+
+====== Plugin Types and Configs ======
+Created Monday 06 June 2016
+
+[[+FIXCMSPlugin|FIXCMSPlugin]]
+[[+CMSEditor|CMSEditor]]
+[[+OrderListManager|OrderListManager]]
+[[+ULDASHBOARDModule|ULDASHBOARDModule]]
+[[+ULMsg|ULMsg]]
+[[+ULFilter|ULFilter]]
+
+Whenever you need to comment out a section in a plugin's ini file, you need to add a - in the config section's header as per below example:
+
+//[//__-__//class] //
+//name                                               = FIXCMSPlugin //
+//source                                             = ${FIXCMSPlugin.class.source}//

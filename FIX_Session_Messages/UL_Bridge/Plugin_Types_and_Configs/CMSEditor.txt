@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-06T09:25:39+03:00
+
+====== CMSEditor ======
+Created Monday 06 June 2016
+
+This module allows edition of CFB files in a v3 bridge (using the web remote of the v2 bridge).
+Once installed, the remote can be accessed at http://localhost:<PORT>, as with the previous versions. See below for the configuration of the port.
+
+==== Sample configuration for CMSEditor plugin: ====
+
+//[class]//
+//name = com.ullink.ulbridge2.modules.cmseditor.CMSEditor//
+//source = ${CMSEDITOR.class.source}//
+
+//[server]//
+//port = ${cmseditor.server.port}//

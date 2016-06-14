@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-08T11:21:32+03:00
+
+====== TAG432 - ExpireDate ======
+Created Wednesday 08 June 2016
+
+Date of order expiration (last day the order can trade), always expressed in terms of the local market date.  The time at which the order expires is determined by the local market’s business practices

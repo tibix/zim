@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-26T16:12:05+03:00
+
+====== FIX Overview ======
+Created Thursday 26 May 2016
+
+FIX = Financial Information eXchange
+FIX is a **transport-independent** **session** protocol that guarantees **reliable** **real-time** delivery of data between two points which are **directly connected**.
+
+**Transport independent**: it can be used on any type of network.
+**Session protocol**: transfers are carefully monitored
+**Reliable**: message delivery is guranteed
+**Real time**: all messages are immediately delivered
+**Directly connected**: peer to peer connection
+
+FIX is also a set of flexible business message format. The purpose is to represent all the trade related actions in messages. More precisely FIX is a series of messaging specifications developed in collaborations with many partners involved in electronic trading of securities, derivative, and other financial instruments.
+
+FIX is a specification around which developers can build software. Most of Ullink plugins have their own FIX engine developed according to the FIX specifications.
+
+FIX versions: 4.0 -> 4.4 (each version can be customized, meaning there are as manny FIX flavours as companies using it.
+FIX is defined ad two levels: SESSION (OSI 5) and APPLICATION (OSI 7).

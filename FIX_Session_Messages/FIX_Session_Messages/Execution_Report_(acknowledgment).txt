@@ -1,0 +1,61 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-31T15:04:41+03:00
+
+====== Execution Report (acknowledgment) ======
+Created Tuesday 31 May 2016
+
+===== Execution Report (acknowledgement) - Tag 35=8 (Message Type: Execution Report) =====
+
+==== Utilization ====
+
+The **FIX** protocol **does not support** **individual message acknowledgment**. However, a number of application messages require explicit application level acceptance or rejection. New Orders, cancel requests, cancel/replace requests require specific application level response. The acceptance is confirmed by sending an execution report.
+There are several execution reports types : New, Partially Filled, Filled, Done for day, Cancelled, Replaced, Rejected and some others. In this example we will use the execution report to acknowledge a new order. An execution report is identified with (35=8, execution report). The type of execution report is determined with tag 39. In this case this is for a new order (39=0)
+There are two important tags in an execution report : First, tag 39 (Order Status) which is the current status of the order on the market. The second one is tag 150 (Exectype) which precise the type of execution.
+
+Ex: 8=FIX.4.2|9=232|**35=8**|49=TCI|56=SCI|34=741|52=20050816-10:29:06|50=TRDN|57=1441316|22=4|1=BG21|55=AGV|48=DE0006911324|37=0002360574941|11=20050816-00039|**150=0**|**20=0**|**39=0**|54=1|**38=30000**|59=0|17=02000858|40=2|**44=0.16**|**151=30000**|31=0|32=0|6=0|14=0|204=0|10=147|
+
+==== Important tags and comments ====
+
+== Header ==
+	8=FIX.4.2				- Begin String
+	9=232					- Message Length
+	**35=8					- Message Type 35=8 (Execution Report)**
+	49=SCI					- Sender Company ID ([[Important Tags:TAG49 - SenderCompID]])
+	56=TCI					- Target Company ID ([[Important Tags:TAG56 - TargetCompID]])
+	34=741					- Message Sequence Number ([[Important Tags:TAG34 - MsgSeqNum]])
+	52=20050816-10:29:06		- Sending Time
+	50=TRDN				- Sender Sub ID: message originator
+	57=1441316				- Target Sub ID: specific destination
+
+
+== Body ==
+	22=4					- IDSource (4: ISIN number)
+	1=BG21					- Account Mnemonic
+	55=AGV					- Symbol
+	48=DE0006911324		- Security ID
+	37=0002360574941		- Unique identifier for Order as assigned by broker (Order ID)
+	11=20050816-00039		- Unique identifier for Order as assinged by institution (ClOrdID)
+	**150=0					- Execution Report Type (0:new)**
+	**20=0					- Identifies Transaction Type (0:new)**
+	**39=0					- Order Status (0: new)**
+	54=1					- Side (1: Buy, 2: Sell)
+	**38=30000				- Order Quantity**
+	59=0					- Time in Force (0: Day validity)
+	17=02000858				- Unique identifier of execution message as assigned by broker
+	40=2					- Order Type (2: Limit)
+	**44=0.16				- Price**
+	**151=30000				- Amount shares open for further executions**
+	31=0					- Price of this last fill
+	32=0					- Quantity of shares on this last fill
+	6=0						- Average price of all fills on this order
+	14=0					- Total number of shares filled
+	204=0					- Customer Or Firm (0: Customer)
+
+
+== Trailer ==
+	10=147					- [[Important Tags:TAG10 - CheckSum]]
+	
+{{~/Pictures/Greenshot Captures/2016-05-31 15_26_04-Ullink-FIX-Training.pdf - Foxit Reader.png}}
+
+

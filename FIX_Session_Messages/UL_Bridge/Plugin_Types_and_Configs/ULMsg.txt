@@ -1,0 +1,105 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-06T09:26:04+03:00
+
+====== ULMsg ======
+Created Monday 06 June 2016
+
+The inter-bridge plug-in has been developed to interconnect two ULBridge's. This adapter is based on a FIX session. It can be used both for order sending and execution report messages sending. An inter-bridge adapter must be connected to another inter-bridge adapter.
+For example, the inter-bridge connection can be used to separate a client connection from the market access connection by a firewall.
+
+**Queueing**
+In order to reduce blocking risks, messages can be treated in different queues, based on the PLUGINORIGINATOR value of received UL Messages, if [options]/message-queueing=true.
+Therefore if a message treatment is blocked or takes time, it will not slow down other client messages since there is a thread consumer per queue. 
+
+When the plug-in is stopped, it goes into disconnected mode and waits for the end of the current message treatment of each queues.
+If the treatment has not finished after "stop-timeout" seconds, the plug-in stops and the message will be request again at next starting.
+Other messages received but not yet treated are discarded. Then the plug-in goes into the stopped mode.
+Unless a plug-in reset, at next plug-in starting, messages which haven't been treated, will be requested again to the counterpart.
+
+**Multithreading**
+If received ULMessage types are "new", "replacerequest", "cancelrequest", "executionreport", "cancelreject", you may consider to enable multithreading instead of queueing. In case of multithreading, received messages are treated in parallel if they refer to different orders. See the [session.executor] section.
+
+==== Sample config for Initiator (INBOUBD [Sell]) ULMsg: ====
+
+//[class]//
+//name						= ULMsg//
+//source						= ${ULMsg.class.source}//
+
+//[session]//
+//IP_machine					= ${I_interbridge_ld_tlh.session.ip_machine}//
+//IP_port						= ${I_interbridge_ld_tlh.session.ip_port}//
+//IP_machine_backup			= ${I_interbridge_ld_tlh.session.ip_machine_backup}//
+//IP_Port_Backup				= ${I_interbridge_ld_tlh.session.ip_port_backup}//
+//Type						= I//
+//connection-attempts			= 3//
+//switchbackup				= 2//
+//switch-to-primary-at-reset		= true//
+//senderCompID				= ${I_interbridge_ld_tlh.session.sendercompid}//
+//targetCompID				= ${I_interbridge_ld_tlh.session.targetcompid}//
+//heartbeat					= 30//
+
+//[timers/doStart]//
+//action                                             = doStart//
+//trigger                                            = 15 45 22 ? * SUN-THU;//
+//TimeZone                                       = GMT//
+
+//[timers/dostopdoReset]//
+//action                                             = doStop;doReset//
+//trigger                                            = 0 30 22 ? * MON-FRI;//
+//TimeZone                                       = GMT//
+
+//[timers/cleanup_I_interbridge_ld_tlh]//
+//action                                             = com.ullink.ulbridge:name=CleanupManagement,type=CleanupManagement.cleanupOrder("I_interbridge_ld_tlh", null, 5, null, "expired")//
+//trigger                                            = 0 31 22 ? * MON-FRI;//
+//timezone                                        = GMT//
+
+//[options]//
+//enable-synchro				= false//
+//strict-grammar 				= false//
+//support-port-centralisation	= true//
+
+//[category]//
+//name						= INTERBRIDGE//
+
+//[trace]//
+//level						= 4//
+
+//[routing]//
+//destination					= @order_routing_I_interbridge_ld_tlh//
+
+==== Sample config for Acceptator (OUTBOUBD [Buy]) ULMsg: ====
+
+//[class]//
+//name						= ULMsg//
+//source						= ${ULMsg.class.source}//
+
+//[session]//
+//IP_port						= ${adapter.session.ip_port}//
+//Type						= A//
+//senderCompID				= ${O_interbridge_sg_sgx.session.sendercompid}//
+//targetCompID				= ${O_interbridge_sg_sgx.session.targetcompid}//
+//heartbeat					= 30//
+//checkCompId				= Y//
+//nonpersistnested				= new,replacerequest,listnew,newmultileg,replacerequestmultileg,newcross,crossreplacerequest,crosscancelrequest//
+
+//[timers/doResetdoStart]//
+//action						= doReset ; doStart//
+//trigger						= 0 45 22 ? * SUN-THU;//
+//TimeZone					= GMT//
+
+//[timers/dostopdoReset]//
+//action						= doStop ; doReset//
+//trigger						= 0 30 22 ? * MON-FRI;//
+//TimeZone					= GMT//
+
+//[options]//
+//enable-synchro				= false//
+//strict-grammar				= false//
+//support-port-centralisation	= true//
+
+//[category]//
+//name						= INTERBRIDGE//
+
+//[Trace]//
+//Level						= 4//

@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-02T09:30:40+03:00
+
+====== Plugin Add ======
+Created Thursday 02 June 2016
+
+==== Steps ====
+
+1. [[+Upload cfb file|Upload .cfb file]]
+2. [[+Update bridge properties file|Update properties file]]
+3. [[+Reload properties file|Reload properties file]]
+4. [[+Add INI file|Add .ini file]]

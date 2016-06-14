@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-08T19:10:50+03:00
+
+====== TAG15 - Currency ======
+Created Wednesday 08 June 2016
+
+Identifies currency used for price. Absence of this field is interpreted as the default for the security. 
+It is recommended that systems provide the currency value whenever possible.  
+See **"Appendix 6-A: Valid Currency Codes"** for information on obtaining valid values.

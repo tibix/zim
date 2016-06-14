@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-26T17:51:50+03:00
+
+====== Logon ======
+Created Thursday 26 May 2016
+
+===== Logon - Tag 35=A (Message Type = logon) =====
+
+==== Utilization ====
+
+ The logon message **authenticates** a user **establishing a connection** to a remote system. The logon message is **the first message** sent by the application requesting to initiate a FIX session. Each Fix system is either in **Acceptator** mode (//waiting for connection//) or in **Initiator mode** (//trying to initiate the connection//). Naturally each side must be in the opposite mode to create a connection.
+The logon message contains the **Heart Beat Interval (tag 108)** field which is used to declare the timeout interval for generating heartbeats (same value used by both sides).	
+Upon receipt of a Logon message, the session acceptor authenticate the party requesting connection and issue a Logon message as acknowledgment that the connection request is accepted. The logon message, like every other, contains the [[Important Tags:TAG49 - SenderCompID]] and the TargetCompId.
+
+Ex: 8=FIX.4.2|9=67|**35=A**|**49=SCI**|56=TCI|34=1|52=20050816-05:00:11|57=ADMIN|98=0|**108=30**|10=089|
+
+==== Important tags and Comments ====
+
+== Header: ==
+	8=FIX.4.2	- Begin String
+	9=67		- The Length of the message
+	[[Important Tags:TAG35 - MsgType|35=A]]		- Message Type = Logon (A)
+	**49=SCI**		- Sender Company ID ([[Important Tags:TAG49 - SenderCompID]])
+	56=TCI		- Target Company ID ([[Important Tags:TAG56 - TargetCompID]])
+	34=1		- Message Sequence Number ( [[Important Tags:TAG34 - MsgSeqNum]] )  
+	52=20050816-05:00:11	- Sending time
+	57=ADMIN	- Target Sub Id : to identify specific unit of a company
+	
+
+== Body: ==
+	98=0		- Encryption Method : //none//
+	**108=30		- Heart Beat Interval: 30s**
+	
+
+== Trailer: ==
+	10=089		-Three byte [[Important Tags:TAG10 - CheckSum]] of the message
+
+{{~/Pictures/Greenshot Captures/2016-05-26 17_50_29-Ullink-FIX-Training.pdf - Foxit Reader.png}}

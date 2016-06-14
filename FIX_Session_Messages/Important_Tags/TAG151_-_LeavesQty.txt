@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-08T19:37:28+03:00
+
+====== TAG151 - LeavesQty ======
+Created Wednesday 08 June 2016
+
+Quantity open for further execution. If the OrdStatus ([[TAG39 - OrderStatus|39]]) is Canceled, DoneForTheDay, Expired, Calculated, or Rejected (in which case the order is no longer active) then LeavesQty could be 0, otherwise 
+**LeavesQty** = **OrderQty** ([[TAG38 - OrderQty|38]]) – **CumQty** ([[TAG14 - CumQty|14]]).
+(Prior to FIX 4.2 this field was of type int)

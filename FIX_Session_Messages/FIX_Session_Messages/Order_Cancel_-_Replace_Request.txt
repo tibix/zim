@@ -1,0 +1,54 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-31T15:46:04+03:00
+
+====== Order Cancel - Replace Request ======
+Created Tuesday 31 May 2016
+
+===== Order Cancel / Replace Request - Tag 35=G (Cancel/Replace Request) =====
+
+==== Utilization ====
+
+An Order Cancel / Replace Request message is used to change the parameters of an existing order. Only a limited number of parameters can be changed. In this example we will use it to increase the number of shares. Other such parameters that can be changed are order type, Price and Handle Instance.
+
+Ex: 8=FIX.4.2|9=0230|**35=G**|49=SCI|56=TCI|34=818|50=1441316|57=TRDN|52=20050816-11:17:06|60=20050816-11:17:06|1=BG21|**38=12000**|40=2|11=20050816-10021|41=20050816-00041|44=102|15=NOK|75=20050816|48=NO0003080608|109=BG21|21=1|22=4|54=1|55=SOFF|207=NO|59=0|10=246|
+
+==== Important tags and comments ====
+
+== Header ==
+	8=FIX.4.2				- Begin String
+	9=0230					- Message Lenght
+	**35=G					- Message Type 35=G (Cancel/Replace Request)**
+	49=SCI					- Sender Company ID ([[Important Tags:TAG49 - SenderCompID]])
+	56=TCI					- Target Company ID ([[Important Tags:TAG56 - TargetCompID]])
+	34=818					- Message Sequence Number ([[Important Tags:TAG34 - MsgSeqNum]])
+	50=1441316				- Sender Sub ID
+	57=TRDN				- Target Sub ID
+	52=20050816-11:17:06		- Sending Time
+
+
+== Body ==
+	60=20050816-11:17:06		- Time of execution / order creation
+	1=BG21					- Account Mnemonic
+	**38=12000				- Quantity Number of shares orderd**
+	40=2					- Order Type (2: Limit)
+	11=20050816-10021		- Unique Identifier as assigned by institution (ClordID)
+	41=20050816-00041		- Order ID of the order to be replace (OrigClordID)
+	44=102					- Price per share
+	15=NOK					- Currency
+	75=20050816				- Date of trade referenced in this message
+	48=NO0003080608		- Seciruty ID
+	109=BG21				- Firm identifier used in third party-transactions
+	21=1					- Handle instance (1: Straigth to Market)
+	22=4					- IDSource (4: ISIN Number)
+	54=1					- Side (1: Buy, 2: Sell)
+	55=SOFF				- Symbol
+	207=NO					- Market used to identify a security
+	59=0					- Time in force (0: day validity)
+
+
+== Trailer ==
+	10=246					- [[Important Tags:TAG10 - CheckSum]] 
+	
+{{~/Pictures/Greenshot Captures/2016-05-31 15_57_06-Ullink-FIX-Training.pdf - Foxit Reader.png}}
+

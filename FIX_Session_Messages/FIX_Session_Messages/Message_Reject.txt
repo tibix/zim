@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-26T18:26:56+03:00
+
+====== Message Reject ======
+Created Thursday 26 May 2016
+
+===== Message Reject - Tag 35=3 (Message Type: Reject) =====
+
+==== Utilization ====
+
+A reject message is issued when a message is received but cannot be properly processed due to session-level rule violation. An example of when a reject may be appropriate would be the receipt of a message with invalid basic data (e.g. MsgType=&) which successfully passes CheckSum and BodyLength checks. 
+Messages are forwarded to the trading application for business level rejections whenever possible. There is also the business level session.
+
+Ex: 8=FIX.4.2|9=0098|**35=3**|49=TCI|56=SCI|34=201|52=20050712-07:15:05|50=ADMIN|57=TSI|**45=2261**|**58=Bad targets: AUDI**|10=113|
+
+==== Important tags and comments ====
+
+== Header ==
+	8=FIX.4.2				- Begin String
+	9=0098					- Message Length
+	**35=3					- Message Type = Reject (3)**
+	49=TCI					- Target Company ID ([[Important Tags:TAG56 - TargetCompID]])
+	56=SCI					- Sender Company ID ([[Important Tags:TAG49 - SenderCompID]])
+	34=201					- Message Sequence Number ([[Important Tags:TAG34 - MsgSeqNum]])
+	52=20050712-07:15:05		- Sending Time
+	50=ADMIN				- Sender Sub ID: message originator
+	57=TSI					- Target Sub ID: specific destination
+
+
+== Body ==
+	**45=2261				- Refecence message sequence number of rejected message**
+	**58=Bad targets: AUDI	- Free format text string to explain reason for rejection**
+	
+== Trailer ==
+	10=113					- Message [[Important Tags:TAG10 - CheckSum]]
+	
+
+{{~/Pictures/Greenshot Captures/2016-05-26 18_36_10-Ullink-FIX-Training.pdf - Foxit Reader.png}}
+

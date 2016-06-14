@@ -1,0 +1,71 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-01T14:50:08+03:00
+
+====== JAVA Enrichment ======
+Created Wednesday 01 June 2016
+
+import com.ullink.ulbridge2.*;
+
+public void doEnrichment(ULMessage ulm)
+{
+	// MESSAGETYPE=NEW|......|SENDERSUBID=171263|....|
+	// MESSAGETYPE=NEW|......|....|
+ ulm.remove("SENDERSUBID");
+ 
+ // MESSAGETYPE=NEW|......|SENDERSUBID=171263|....| - this has no ACCOUNT tag
+ // MESSAGETYPE=NEW|......|SENDERSUBID=171263|....|ACCOUNT=acc1|...
+ ulm.add("ACCOUNT","acc1");
+ 
+ // MESSAGETYPE=NEW|......|SENDERSUBID=171263|....| - this has no ACCOUNT tag
+ // MESSAGETYPE=NEW|......|SENDERSUBID=171263|....|ACCOUNT=171263|
+ ulm.add("ACCOUNT",ulm.getString("SENDERSUBID"));
+ 
+ //1.)
+ // MESSAGETYPE=NEW|......|EXDESTINATION=XEUR|....| - this has no SECURITYEXCHANGE tag
+ // MESSAGETYPE=NEW|......|EXDESTINATION=XEUR|....|..|SECURITYEXCHANGE=DE
+ 
+ //2.)
+ // MESSAGETYPE=NEW|......|EXDESTINATION=XEUR|....|..|SECURITYEXCHANGE=TEST
+ // MESSAGETYPE=NEW|......|EXDESTINATION=XEUR|....|..|SECURITYEXCHANG=DE
+ if ("XEUR".equals(ulm.getString("EXDESTINATION"))) ulm.add("SECURITYEXCHANGE","DE");
+ if ("XEUR".equals(ulm.getString("EXDESTINATION"))) ulm.remove("SENDERSUBID");
+ if ("XEUR".equals(ulm.getString("EXDESTINATION"))) ulm.add("ACCOUNT",ulm.getString("TARGETSUBID"));
+ 
+ 
+ if ("XEUR".equals(ulm.getString("EXDESTINATION")))
+ {
+  ulm.add("SECURITYEXCHANGE","DE"); 
+  ulm.remove("SENDERSUBID");
+  ulm.add("ACCOUNT",ulm.getString("TARGETSUBID"));
+ }
+
+//1.) emebdeded if -s 
+if (ulm.exist("EXDESTINATION"))
+{ 
+ if ("XEUR".equals(ulm.getString("EXDESTINATION")) ||
+  "XPAR".equals(ulm.getString("EXDESTINATION")) ||
+  "XLON".equals(ulm.getString("EXDESTINATION")) ||
+  "XDMI".equals(ulm.getString("EXDESTINATION"))
+  )
+ {
+  ulm.add("SECURITYEXCHANGE","DE"); 
+  ulm.remove("SENDERSUBID");
+  ulm.add("ACCOUNT",ulm.getString("TARGETSUBID"));
+ }
+}
+
+//2.) same as above with double condition
+ if (ulm.exist("EXDESTINATION") && ("XEUR".equals(ulm.getString("EXDESTINATION")) ||
+  "XPAR".equals(ulm.getString("EXDESTINATION")) ||
+  "XLON".equals(ulm.getString("EXDESTINATION")) ||
+  "XDMI".equals(ulm.getString("EXDESTINATION"))
+  ))
+ {
+  ulm.add("SECURITYEXCHANGE","DE"); 
+  ulm.remove("SENDERSUBID");
+  ulm.add("ACCOUNT",ulm.getString("TARGETSUBID"));
+ }
+ 
+ 
+}

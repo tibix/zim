@@ -1,0 +1,56 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-31T15:57:43+03:00
+
+====== Order Cancel Request ======
+Created Tuesday 31 May 2016
+
+===== Order Cancel Request - Tag 35=F (Cancel Request) =====
+
+==== Utilization ====
+
+An Order Cancel Request message is sent to request a cancellation of an existing order that means the cancellation of all of the remaining quantity of that order. 
+An immediate response to this message is required. An execution report setting status to Pending Cancel.
+
+Ex: 8=FIX.4.2|9=0220|**35=F**|49=SCI|56=TCI|34=222|50=3325896|57=TRDN|52=20050816-06:35:50|60=20050816-06:35:50|1=TRAD|**125=F**|38=12000|40=2|11=20050816-10009|41=20050816-00011|44=102|75=20050816|48=DK0010181759|109=TRAD|21=1|22=4|54=1|55=SOFF|207=DC|10=087|
+
+==== Important tags and comments ====
+
+== Header ==
+	8=FIX.4.2				- Begin String
+	9=0220					- Message Length
+	**35=F					- Message Type (G: Cancel/Replace Request)**
+	49=SCI					- Sender Company ID ([[Important Tags:TAG49 - SenderCompID]])
+	56=TCI					- Target Company ID ([[Important Tags:TAG56 - TargetCompID]])
+	34=222					- Message Sequence Number ([[Important Tags:TAG34 - MsgSeqNum]])
+	50=3325896				- Sender Sub ID
+	57=TRDN				- Target Sub ID
+	52=20050816-06:35:50		- Sending Time
+
+
+== Body ==
+	60=20050816-06:35:50		- Time of execution/order creation
+	1=TRAD					- Account Mnemonic
+	**125=F					- Cancel Type**
+	38=12000				- Order Quantity
+	40=2					- Order Type (2: Limit)
+	11=20050816-10009		- Unique identifier for this Order as assigned by institution (ClordID)
+	41=20050816-00011		- Order ID of the order to be canceled (OrigClordID)
+	44=102					- Price per share
+	75=20050816				- Date of trade reffernced in this message
+	48=DK0010181759		- Security ID
+	109=TRAD				- Firm identifier used in third party-transactions
+	21=1					- Handle Instance (1: Strainght to Market)
+	22=4					- IDSource (4: ISIN number)
+	54=1					- Side (1: Buy)
+	55=SOFF				- Symbol
+	207=DC					- Market used to help identify a security
+
+
+== Trailer ==
+	10=087					- [[Important Tags:TAG10 - CheckSum]]
+	
+{{~/Pictures/Greenshot Captures/2016-05-31 16_12_18-Ullink-FIX-Training.pdf - Foxit Reader.png}}
+
+
+

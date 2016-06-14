@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-08T19:04:48+03:00
+
+====== TAG100 - ExDestination ======
+Created Wednesday 08 June 2016
+
+Execution destination as defined by institution when order is entered.
+Valid values: **See "Appendix 6-C"**
+
+==== NOTE: 4 char code ====

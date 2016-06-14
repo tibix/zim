@@ -1,0 +1,38 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-26T17:53:41+03:00
+
+====== Test Request ======
+Created Thursday 26 May 2016
+
+===== Test Request - Tag 35 =1 (Message Type: Test Request) =====
+
+==== Utilization ====
+The test request message forces a heartbeat from the opposing application. The test request message checks sequence numbers and verifies communication line status. The opposite application responds to the Test Request with a Heartbeat containing the TestReqID.
+
+Ex: 8=FIX.4.2|9=73|**35=1**|49=SCI|56=TCI|34=2|52=20050712-05:50:09|57=ADMIN|112=synchronized?|10=085|
+
+==== Important Tags and Comments ====
+
+== Header ==
+	8=FIX.4.2			- Begin String
+	9=73				- The Length of the message
+	**35=1				- Message Type = Test Request (1)**
+	49=SCI				- Sender Company ID ([[Important Tags:TAG49 - SenderCompID]])
+	56=TCI				- Target Company ID ([[Important Tags:TAG56 - TargetCompID]])
+	34=2				- Message Sequence Number ([[Important Tags:TAG34 - MsgSeqNum]])
+	52=20050712-05:50:09	- Sending Time
+	57=ADMIN			- Target Sub ID
+
+
+== Body ==
+	112=synchronised?	- Test ReqID
+
+
+== Trailer ==
+	10=085				- Message [[Important Tags:TAG10 - CheckSum]] 
+	
+	
+{{~/Pictures/Greenshot Captures/2016-05-26 18_03_59-Ullink-FIX-Training.pdf - Foxit Reader.png}}
+
+

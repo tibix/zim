@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-02T09:32:28+03:00
+
+====== Upload cfb file ======
+Created Thursday 02 June 2016
+
+[ ] Open bridge Setup page 
+[ ] Select Advanced View (from left bottom corner)
+[ ] Click on "**Upload ..."** button (from right bottom corner)
+[ ] Browse to your CFB file (NOTE: default file type the platform is lloking for is JAR, you will need to change the option to Cfb file(*.cfb))
+[ ] Select your CFB and click Open, then click OK
+[ ] If all steps above are done correctly, you should get a message: The CFB file '<file_name.cfb>' has been successfully uploaded to the server platform
+
+=== Next: ===
+[[Plugin Add:Add INI file]]
