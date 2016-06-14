@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-10T15:29:19+03:00
+
+====== Plugin Decomission ======
+Created Friday 10 June 2016
+
+==== DB routes remove command ====
+
+Outbound - ./jmx-client.sh '-action=com.ullink.ulbridge:name=CleanupManagement,type=CleanupManagement.cleanupOrder(null, "PLUGIN_NAME", 0, null, "all")'
+Inbound - ./jmx-client.sh '-action=com.ullink.ulbridge:name=CleanupManagement,type=CleanupManagement.cleanupOrder("PLUGIN_NAME", null, 0, null, "all")'

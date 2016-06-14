@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-14T23:09:05+03:00
+
+====== TAG1 - Account ======
+Created Tuesday 14 June 2016
+
+Mnemonic account - String value
+

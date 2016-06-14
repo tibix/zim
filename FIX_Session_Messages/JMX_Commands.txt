@@ -1,0 +1,68 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-14T11:50:32+03:00
+
+====== JMX Commands ======
+Created Tuesday 14 June 2016
+
+
+=== Checking if the UL BRIDGE disaster recovery is connected and synchronized ===
+./jmx-client.sh com.ullink.ultools.failover:name=HotFailover,type=FailoverManagement "Connected Failure Synchronizing ServerType PrimaryServerAddress"
+
+=== Activating the disaster recovery UL BRIDGE as primary ===
+./jmx-client.sh com.ullink.ultools.failover:name=HotFailover,type=FailoverManagement activate
+
+=== Start a plugin ===
+./jmx-client.sh '-action=com.ullink.ulbridge.sessioninterfaces.plugins:type=Plugin,name=Plugin1.doStart'
+
+=== Stop a plugin ===
+./jmx-client.sh '-action=com.ullink.ulbridge.sessioninterfaces.plugins:type=Plugin,name=Plugin1.doStop'
+
+=== Reset-Start a plugin ===
+./jmx-client.sh com.ullink.ulbridge:type=ULBridgeManagement,name=ULBridgeManagement checkpoint
+
+=== Modify a plugin sequence numbers ===
+./jmx-client.sh '-action=com.ullink.ulbridge.sessioninterfaces.plugins:name='plugin_name',type=Plugin,plugin-type=FIX.executeExtendedAction("set-sequence-numbers",["597", "720"])'
+
+=== Get the number of routes in the DAO ===
+./jmx-client.sh com.ullink.ultools.dao.core:type=ROUTES getSize
+
+=== Get the data of a specific route ===
+* **When you know the Exchange ID and the ToSessionName:**
+./jmx-client.sh "com.ullink.ultools.dao.core:type=ROUTES,index=ExchangeKeyToSessionIndex" get=ExchangeID, ToSessionName
+
+* **When you know the ClOrdID and the fromSessionName:**
+./jmx-client.sh "com.ullink.ultools.dao.core:type=ROUTES, index=OrigKeyIndex" get=ClOrdID,fromSessionName
+
+* **When you know the DestKey (ClOrdID for the buy side plugin):**
+./jmx-client.sh "com.ullink.ultools.dao.core:type=ROUTES,index=DestKeyIndex" get=ClOrdID"
+
+=== Exporting selected routes to a specific folder (JAVA) ===
+./jmx-client.sh '-action=com.ullink.ultools.dao.core:type=ROUTES.dump(file=routes.java, "../bin")'
+
+ - **Create a file named routes.java and set its content t**o:
+"aSessionName".equals(record.getFromSessionName())
+
+=== Returning the routes with pendingnew orders (JAVA) ===
+./jmx-client.sh com.ullink.ultools.dao.core:type=ROUTES select=\"new\".equals\(record.getULMsg().getString(\"ORDSTATUS\"))
+
+=== Selecting all the routes of a selectedplugin (JAVA) ===
+./jmx-client.sh '-action=com.ullink.ultools.dao.core:type=ROUTES.select(file=routes.java)'
+
+ - **Create a file named routes.java and set its content to:**
+"aSessionName".equals(record.getFromSessionName())
+
+=== Counting all canceled and replacedroutes (JAVA) ===
+ ./jmx-client.sh '-action=com.ullink.ultools.dao.core:type=ROUTES.count(file=routes.java)'
+
+- **Create a file named routes.java and set its content to:**
+record.isCanceled() || record.isReplaced()
+
+=== Updating a route (JAVA) ===
+./jmx-client.sh '-action=com.ullink.ultools.dao.core:type=ROUTES.update(file=selectULMsg.java,file=updateULMsg.java)'
+
+- **Where selectULMsg.java is:**
+"ClordID".equals(record.getULMsg().getString("CLORDID"))
+
+- **And updateULMsg.java is:**
+record.getULMsg().add("aTag", "aValue")

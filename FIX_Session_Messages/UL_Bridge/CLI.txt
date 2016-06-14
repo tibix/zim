@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-09T10:11:00+03:00
+
+====== CLI ======
+Created Thursday 09 June 2016
+
+PATH = [[/mnt/$bridge_name/bin]]
+
+Shutdown gracefuly - [[./shutdown_regular.sh]]
+Start - [[./satrt.sh]]
+
+Dashboard reload (ex: if plugins are purple - inactive) - ./ReloadDashboard.sh
