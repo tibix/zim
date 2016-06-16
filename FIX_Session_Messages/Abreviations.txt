@@ -19,4 +19,7 @@ Created Tuesday 31 May 2016
 **RFC** - Request for Change
 **UAT** - User Acceptance testing
 **ECN** - Electronic Communication Network
+<<<<<<< HEAD
+=======
 **DAO** - Data access object
+>>>>>>> a9e7d57f9ee703402c3290f43bb44b30e7c70375
