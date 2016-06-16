@@ -28,13 +28,13 @@ Created Tuesday 14 June 2016
 ./jmx-client.sh com.ullink.ultools.dao.core:type=ROUTES getSize
 
 === Get the data of a specific route ===
-* **When you know the Exchange ID and the ToSessionName:**
+ **- When you know the Exchange ID and the ToSessionName:**
 ./jmx-client.sh "com.ullink.ultools.dao.core:type=ROUTES,index=ExchangeKeyToSessionIndex" get=ExchangeID, ToSessionName
 
-* **When you know the ClOrdID and the fromSessionName:**
+ - **When you know the ClOrdID and the fromSessionName:**
 ./jmx-client.sh "com.ullink.ultools.dao.core:type=ROUTES, index=OrigKeyIndex" get=ClOrdID,fromSessionName
 
-* **When you know the DestKey (ClOrdID for the buy side plugin):**
+ - **When you know the DestKey (ClOrdID for the buy side plugin):**
 ./jmx-client.sh "com.ullink.ultools.dao.core:type=ROUTES,index=DestKeyIndex" get=ClOrdID"
 
 === Exporting selected routes to a specific folder (JAVA) ===
