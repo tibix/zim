@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-29T12:12:19+03:00
+
+====== Linux Commands ======
+Created Wednesday 29 June 2016
+
+bzcat * | grep -w PETE | grep -E "35=D|35=F|35=G|35=8" - search for PETE only where 35=D|35=F|35=G|3
