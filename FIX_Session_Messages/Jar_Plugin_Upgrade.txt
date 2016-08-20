@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-07-01T15:30:27+03:00
+
+====== Jar Plugin Upgrade - Bridge V4 ======
+Created Friday 01 July 2016
+
+ULNET-LD TLH:
+
+	take a backup of the bridge
+	stop the bridge
+	push version 1.22 of Client_DJE.jar (available on release center and attached here as well) to:
+
+	/home/ullink/ULBRIDGE/PLUGINS/DJE/1.22/Client_DJE.jar
+
+	set the following inside the .properties file:
+
+	Client_DJE.class.source= /home/ullink/ULBRIDGE/PLUGINS/DJE/1.22/Client_DJE.jar
+
+	#client_dje
+	client_dje.session.sendercompid        = ULLINKNETLD_UAT
+	client_dje.session.targetcompid          = PATRONASLD
+
+	add client_dje to ulbridge.ini
+	start the bridge
+	create a new plugin, client_dje, with the ini file attached

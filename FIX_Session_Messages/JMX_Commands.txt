@@ -66,3 +66,91 @@ record.isCanceled() || record.isReplaced()
 
 - **And updateULMsg.java is:**
 record.getULMsg().add("aTag", "aValue")
+
+=== Full garbage collection ===
+./jmx-client.sh java.lang:type=Memory gc
+
+=== Perform a compact memory ===
+./jmx-client.sh com.ullink.ulbridge:type=ULBridgeManagement,name=ULBridgeManagement compactMemory
+
+=== Perform a checkpoint ===
+./jmx-client.sh com.ullink.ulbridge:type=ULBridgeManagement,name=ULBridgeManagement checkpoint
+
+=== UL BRIDGE startup check ===
+./jmx-client.sh '-action=com.ullink.ulbridge:name=ULBridgeManagement,type=ULBridgeManagement.getInitialized()'
+	* when true: UL BRIDGE is initialized and ready to route orders.
+	* when false: UL BRIDGE is not initialized.
+
+=== DAO error check ===
+./jmx-client.sh '-action=com.ullink.ulbridge:name=ULBridgeManagement,type=ULBridgeManagement.getDaoFailure()'
+	* when true: The DAO has raised an exception, there is an error on the DAO. UL BRIDGE is activated while the DAO disk is full or cannot be reached.
+	* when false: There is no error on the DAO.
+
+=== Reload extra property files ===
+./jmx-client.sh com.ullink.ulbridge:name=ULBridgeManagement,type=ULBridgeManagement reloadPropertiesFile
+
+=== Check if ISIN code is present in UL BRIDGE ===
+./jmx-client.sh com.ullink.ulflow.snapshot:name=marketdata.defaultInstance,service=ReferentialSnapshot,type=ReferentialSnapshotManagement snapshotInstrumentDefinitions=ODS,{isin-code=FR000123},0
+
+=== Shutdown UL Bridge ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=ULBridgeManagement,name=ULBridgeManagement.shutdown("regular")'
+Types of shutdown:
+	- regular 
+	- quick
+	- emergency
+
+
+===== Cleanup JMX Commands =====
+
+=== Launch a cleanup on expired orders of the day ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupOrder("pluginfrom","pluginto",0,"","expired")'
+
+=== Cleanup Quotes, Quotes Request and Quotes Response ===
+In UL BRIDGE 4, the "CleanupQuotes" method when cleaning checks:
+	* Quotes
+	* Quotes Request
+	* Quotes Response.
+To delete every evening ALL Quotes and QuoteRequest, you have to specify a Timer that will use the following UNIX action:
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupQuotes("","",0,"if true")
+
+=== Allocation messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupAllocation("pluginfrom","pluginto",0,"","withoutMatchingOrder")'
+
+=== Allocation report messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupAllocationReport("pluginfrom","pluginto",0,"","withoutMatchingOrder")'
+
+=== Confirmation messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupConfirmation("pluginfrom","pluginto",0,"")'
+
+=== Cross order messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupCross("pluginfrom","pluginto",0,"")'
+
+=== Order List messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupOrderList("pluginfrom","pluginto",0,"")'
+
+=== User request messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupUserRequest("pluginfrom","pluginto",0,"")'
+
+=== Trade capture report messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupTradeCaptureReport("pluginfrom","pluginto",0,"")'
+
+=== Position maintenance messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupPositionMaintenance("pluginfrom","pluginto",0,"")'
+
+=== Derivative Security List messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupDerivativeSecurityList("pluginfrom","pluginto",0,"")'
+
+=== Security definition messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupSecurityDefinition("pluginfrom","pluginto",0,"")'
+
+=== Security list messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupSecurityList("pluginfrom","pluginto",0,"")'
+
+=== Network system state request ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupNtwkSysStatRequest("pluginfrom","pluginto",0,"")'
+
+Trade capture report request messages 
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupTradeCaptureReportRequest("pluginfrom","pluginto",0,"")'
+
+=== Mass cancel request messages ===
+./jmx-client.sh '-action=com.ullink.ulbridge:type=CleanupManagement,name=CleanupManagement.cleanupMassCancelRequest("pluginfrom","pluginto",0,"")'
